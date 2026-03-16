@@ -1,14 +1,20 @@
+aid: roorules
 name: .roorules
 description: Configuration file for Roo Code AI coding assistant providing project-specific
   rules and coding conventions.
-url: ''
+type: Index
+url: https://raw.githubusercontent.com/api-evangelist/roorules/refs/heads/main/apis.yml
 tags:
 - AI Agents
 - Roo Code
 - Developer Workflow
 - Coding Standards
 - AI Copilot
-created: '2025'
-modified: '2025'
+created: '2025-01-01'
+modified: '2026-03-16'
+specificationVersion: '0.19'
 apis: []
 common: []
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
