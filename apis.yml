@@ -1,5 +1,5 @@
 aid: roorules
-name: .roorules
+name: .Roorules
 description: Configuration file for Roo Code AI coding assistant providing project-specific
   rules and coding conventions.
 type: Index
