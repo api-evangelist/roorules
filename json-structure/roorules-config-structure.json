@@ -1,0 +1,49 @@
+{
+  "name": "RooCodeConfiguration",
+  "description": "Structure of Roo Code configuration including .roorules conventions, custom modes, API profiles, and MCP server connections",
+  "fields": [
+    {
+      "name": "roorules",
+      "type": "file",
+      "description": "Project-level .roorules file providing coding conventions and behavioral instructions for Roo Code AI agents",
+      "fields": [
+        { "name": "content", "type": "string", "description": "Free-form Markdown text with project-specific rules and conventions" }
+      ]
+    },
+    {
+      "name": "customModes",
+      "type": "array",
+      "description": "Custom operational modes defined in .roomodes, each with a role definition and tool permissions",
+      "fields": [
+        { "name": "slug", "type": "string", "description": "Unique mode identifier in kebab-case", "required": true },
+        { "name": "name", "type": "string", "description": "Display name for the mode", "required": true },
+        { "name": "roleDefinition", "type": "string", "description": "System prompt defining agent behavior", "required": true },
+        { "name": "groups", "type": "array", "description": "Permitted tool groups: read, edit, browser, command, mcp" },
+        { "name": "customInstructions", "type": "string", "description": "Additional instructions appended to the system prompt" }
+      ]
+    },
+    {
+      "name": "apiProfiles",
+      "type": "array",
+      "description": "Saved AI provider configuration profiles assignable to specific modes",
+      "fields": [
+        { "name": "id", "type": "string", "description": "Profile unique identifier", "required": true },
+        { "name": "name", "type": "string", "description": "Profile display name", "required": true },
+        { "name": "apiProvider", "type": "string", "description": "Provider: anthropic, openai, google, bedrock, openrouter, etc.", "required": true },
+        { "name": "apiModelId", "type": "string", "description": "Model identifier within the provider" },
+        { "name": "apiKey", "type": "string", "description": "API authentication key (stored securely)" }
+      ]
+    },
+    {
+      "name": "mcpServers",
+      "type": "object",
+      "description": "Named MCP server configurations connecting Roo Code to external tools",
+      "fields": [
+        { "name": "command", "type": "string", "description": "Shell command to launch the MCP server", "required": true },
+        { "name": "args", "type": "array", "description": "Command-line arguments for the MCP server" },
+        { "name": "env", "type": "object", "description": "Environment variables for the MCP server process" },
+        { "name": "disabled", "type": "boolean", "description": "Whether the server is currently inactive" }
+      ]
+    }
+  ]
+}

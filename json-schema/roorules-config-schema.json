@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://roocode.com/schemas/roorules-config.json",
+  "title": "Roo Code Configuration Schema",
+  "description": "Schema for Roo Code AI coding assistant configuration including .roorules file format, custom modes, and API configuration profiles.",
+  "type": "object",
+  "$defs": {
+    "RooruleFile": {
+      "type": "object",
+      "title": "RooruleFile",
+      "description": "A .roorules project configuration file providing instructions for Roo Code AI agents",
+      "properties": {
+        "content": {
+          "type": "string",
+          "description": "Free-form text or Markdown content containing coding conventions, style guidelines, and behavioral instructions for Roo Code agents"
+        }
+      }
+    },
+    "CustomMode": {
+      "type": "object",
+      "title": "CustomMode",
+      "description": "A custom Roo Code operational mode defined in .roomodes",
+      "required": ["slug", "name", "roleDefinition"],
+      "properties": {
+        "slug": {
+          "type": "string",
+          "description": "Unique identifier for the mode in kebab-case",
+          "pattern": "^[a-z][a-z0-9-]*$"
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable display name for the mode"
+        },
+        "roleDefinition": {
+          "type": "string",
+          "description": "System prompt text defining the role, capabilities, and constraints of this mode"
+        },
+        "groups": {
+          "type": "array",
+          "description": "Tool groups this mode is allowed to use",
+          "items": {
+            "type": "string",
+            "enum": ["read", "edit", "browser", "command", "mcp"]
+          }
+        },
+        "customInstructions": {
+          "type": "string",
+          "description": "Additional mode-specific instructions appended to the system prompt"
+        }
+      }
+    },
+    "ApiConfigurationProfile": {
+      "type": "object",
+      "title": "ApiConfigurationProfile",
+      "description": "A saved AI provider and model configuration profile for Roo Code",
+      "required": ["id", "name", "apiProvider"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the profile"
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable name for the profile"
+        },
+        "apiProvider": {
+          "type": "string",
+          "description": "AI provider identifier",
+          "enum": ["anthropic", "openai", "google", "bedrock", "openrouter", "ollama", "lmstudio", "mistral", "deepseek", "xai"]
+        },
+        "apiModelId": {
+          "type": "string",
+          "description": "Model identifier for the selected provider (e.g., claude-3-7-sonnet-20250219)"
+        },
+        "apiKey": {
+          "type": "string",
+          "description": "API key for the provider (stored securely, not in files)"
+        }
+      }
+    },
+    "McpServerConfig": {
+      "type": "object",
+      "title": "McpServerConfig",
+      "description": "Configuration for an MCP server connected to Roo Code",
+      "required": ["command"],
+      "properties": {
+        "command": {
+          "type": "string",
+          "description": "Command to launch the MCP server process"
+        },
+        "args": {
+          "type": "array",
+          "description": "Arguments passed to the MCP server command",
+          "items": { "type": "string" }
+        },
+        "env": {
+          "type": "object",
+          "description": "Environment variables set for the MCP server process",
+          "additionalProperties": { "type": "string" }
+        },
+        "disabled": {
+          "type": "boolean",
+          "description": "Whether this MCP server is currently disabled",
+          "default": false
+        }
+      }
+    }
+  },
+  "properties": {
+    "customModes": {
+      "type": "array",
+      "description": "Array of custom mode definitions for the Roo Code instance",
+      "items": { "$ref": "#/$defs/CustomMode" }
+    },
+    "apiProfiles": {
+      "type": "array",
+      "description": "Array of API configuration profiles",
+      "items": { "$ref": "#/$defs/ApiConfigurationProfile" }
+    },
+    "mcpServers": {
+      "type": "object",
+      "description": "Named MCP server configurations",
+      "additionalProperties": { "$ref": "#/$defs/McpServerConfig" }
+    }
+  }
+}

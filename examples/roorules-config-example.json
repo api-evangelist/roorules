@@ -1,0 +1,42 @@
+{
+  "description": "Example Roo Code configuration demonstrating .roorules conventions, custom modes, API profiles, and MCP server setup",
+  "roorules_content": "# Project Coding Conventions\n\n## Language & Framework\n- Use TypeScript strict mode for all new code\n- Follow React functional component patterns with hooks\n- Use Zod for runtime validation of external data\n\n## Code Style\n- Prefer named exports over default exports\n- Maximum function length: 50 lines\n- Use descriptive variable names; avoid abbreviations\n- Document all public APIs with JSDoc\n\n## Architecture\n- Follow feature-based folder structure under src/features/\n- Separate business logic from UI components\n- Use React Query for all server state management\n- Never fetch data directly in components\n\n## Testing\n- Write unit tests for all utility functions\n- Write integration tests for API interactions\n- Minimum 80% code coverage for new features",
+  "customModes": [
+    {
+      "slug": "api-designer",
+      "name": "API Designer",
+      "roleDefinition": "You are an expert API designer focused on creating clean, RESTful APIs. You follow OpenAPI 3.1 specifications and enforce consistent naming conventions, versioning strategies, and error handling patterns.",
+      "groups": ["read", "edit"],
+      "customInstructions": "Always generate OpenAPI specs for any REST endpoints you design. Use kebab-case for paths, camelCase for JSON fields, and Title Case for summaries."
+    }
+  ],
+  "apiProfiles": [
+    {
+      "id": "claude-sonnet",
+      "name": "Claude 3.7 Sonnet",
+      "apiProvider": "anthropic",
+      "apiModelId": "claude-3-7-sonnet-20250219"
+    },
+    {
+      "id": "gpt4o",
+      "name": "GPT-4o",
+      "apiProvider": "openai",
+      "apiModelId": "gpt-4o-2024-08-06"
+    }
+  ],
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/developer/projects"],
+      "disabled": false
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_your_token_here"
+      },
+      "disabled": false
+    }
+  }
+}

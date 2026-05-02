@@ -1,0 +1,128 @@
+name: Roorules Vocabulary
+description: >-
+  Vocabulary and taxonomy for Roo Code AI coding assistant and the .roorules
+  configuration file convention, covering AI agent modes, provider integrations,
+  MCP tools, and coding workflow concepts.
+created: '2026-05-02'
+modified: '2026-05-02'
+terms:
+  - term: .roorules
+    definition: >-
+      A project-level configuration file that provides Roo Code AI agents with
+      project-specific coding conventions, style guidelines, architecture rules,
+      and behavioral instructions. Placed in the project root, it is
+      automatically loaded when Roo Code is used within that project.
+    tags:
+      - Configuration
+      - Core
+  - term: Roo Code
+    definition: >-
+      An open-source, AI-powered autonomous coding assistant for VS Code that
+      goes beyond autocomplete to read and write across multiple files, execute
+      terminal commands, and coordinate multi-agent workflows.
+    tags:
+      - Core
+  - term: Mode
+    definition: >-
+      A named operational context within Roo Code that configures how the AI
+      agent behaves. Built-in modes include Code (writing/editing), Architect
+      (planning), Debug (diagnosing), and Ask (Q&A). Custom modes can be
+      defined in .roomodes files.
+    tags:
+      - Configuration
+  - term: .roomodes
+    definition: >-
+      A configuration file defining custom Roo Code operational modes with
+      specific instructions, allowed tools, and model settings distinct from
+      the built-in Code/Architect/Debug/Ask modes.
+    tags:
+      - Configuration
+  - term: API Configuration Profile
+    definition: >-
+      A saved set of AI provider and model settings in Roo Code that can be
+      assigned to specific modes. Allows switching between providers (Anthropic,
+      OpenAI, Google) and models without reconfiguring globally.
+    tags:
+      - Configuration
+      - Integration
+  - term: MCP
+    definition: >-
+      Model Context Protocol — an open protocol for connecting AI models to
+      external tools and data sources. Roo Code acts as an MCP client and can
+      connect to MCP servers exposing file systems, APIs, databases, and
+      cloud services.
+    tags:
+      - Integration
+      - Protocol
+  - term: MCP Server
+    definition: >-
+      An external service implementing the Model Context Protocol that exposes
+      tools and resources to Roo Code AI agents. Examples include filesystem
+      servers, web search servers, database connectors, and API clients.
+    tags:
+      - Integration
+      - MCP
+  - term: Auto-Approve
+    definition: >-
+      A Roo Code permission setting that allows the AI agent to execute certain
+      operations (file writes, terminal commands, browser actions) without
+      requiring explicit user confirmation for each action.
+    tags:
+      - Configuration
+      - Security
+  - term: Orchestrator Mode
+    definition: >-
+      A Roo Code mode in which the AI coordinates multiple specialized
+      sub-agents to complete complex tasks, delegating work to Code, Architect,
+      or Debug agents as needed.
+    tags:
+      - AI Agents
+      - Architecture
+  - term: Boomerang Task
+    definition: >-
+      A Roo Code pattern where the orchestrator spawns a sub-agent to complete
+      a specific sub-task and returns the result back to the parent workflow,
+      enabling hierarchical multi-agent task decomposition.
+    tags:
+      - AI Agents
+      - Architecture
+  - term: Context Window
+    definition: >-
+      The maximum amount of text (tokens) an LLM can process in a single
+      interaction. Roo Code manages context window usage through compaction
+      and summarization to stay within model limits during long sessions.
+    tags:
+      - LLM
+      - Architecture
+  - term: Tool Use
+    definition: >-
+      The capability of Roo Code AI agents to call structured functions such
+      as read_file, write_file, execute_command, browser_action, and MCP tools
+      to interact with the development environment.
+    tags:
+      - AI Agents
+      - Core
+  - term: System Prompt
+    definition: >-
+      Instructions prepended to every Roo Code conversation that establish
+      the agent's role, capabilities, and constraints. Mode-specific system
+      prompts can be customized via .roorules and .roomodes files.
+    tags:
+      - Configuration
+      - LLM
+  - term: Provider
+    definition: >-
+      An AI model provider supported by Roo Code, including Anthropic (Claude),
+      OpenAI (GPT-4o, o1), Google (Gemini), Amazon Bedrock, OpenRouter, and
+      local LLMs via OpenAI-compatible APIs (Ollama, LM Studio).
+    tags:
+      - Integration
+      - LLM
+  - term: Cloud Agent
+    definition: >-
+      A Roo Code Cloud feature enabling pre-configured AI agent roles (Planner,
+      Coder) accessible from Slack and GitHub integrations for asynchronous
+      development workflows outside the VS Code editor.
+    tags:
+      - AI Agents
+      - Cloud

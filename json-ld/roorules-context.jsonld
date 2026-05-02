@@ -1,0 +1,71 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "roorules": "https://roocode.com/vocab/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "RooCode": {
+      "@id": "roorules:RooCode",
+      "@context": {
+        "name": { "@id": "schema:name" },
+        "description": { "@id": "schema:description" },
+        "version": { "@id": "schema:version" },
+        "url": { "@id": "schema:url" },
+        "license": { "@id": "dcterms:license" },
+        "programmingLanguage": { "@id": "schema:programmingLanguage" }
+      }
+    },
+
+    "RooruleFile": {
+      "@id": "roorules:RooruleFile",
+      "@context": {
+        "projectPath": { "@id": "roorules:projectPath" },
+        "rules": { "@id": "roorules:rules" },
+        "conventions": { "@id": "roorules:conventions" },
+        "guidelines": { "@id": "roorules:guidelines" }
+      }
+    },
+
+    "Mode": {
+      "@id": "roorules:Mode",
+      "@context": {
+        "name": { "@id": "schema:name" },
+        "description": { "@id": "schema:description" },
+        "systemPrompt": { "@id": "roorules:systemPrompt" },
+        "allowedTools": { "@id": "roorules:allowedTools" },
+        "model": { "@id": "roorules:model" }
+      }
+    },
+
+    "ApiConfigurationProfile": {
+      "@id": "roorules:ApiConfigurationProfile",
+      "@context": {
+        "name": { "@id": "schema:name" },
+        "provider": { "@id": "roorules:provider" },
+        "model": { "@id": "roorules:model" },
+        "apiKey": { "@id": "roorules:apiKey" }
+      }
+    },
+
+    "McpServer": {
+      "@id": "roorules:McpServer",
+      "@context": {
+        "name": { "@id": "schema:name" },
+        "description": { "@id": "schema:description" },
+        "transport": { "@id": "roorules:transport" },
+        "tools": { "@id": "roorules:tools" }
+      }
+    },
+
+    "Provider": {
+      "@id": "roorules:Provider",
+      "@context": {
+        "name": { "@id": "schema:name" },
+        "baseUrl": { "@id": "schema:url" },
+        "models": { "@id": "roorules:models" }
+      }
+    }
+  }
+}
