@@ -89,13 +89,13 @@ common:
     url: https://roocode.com/
   - type: Documentation
     url: https://docs.roocode.com/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/RooCodeInc
   - type: GitHubRepository
     url: https://github.com/RooCodeInc/Roo-Code
   - type: Vocabulary
     url: vocabulary/roorules-vocabulary.yml
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/roorules-context.jsonld
   - type: JSONSchema
     url: json-schema/roorules-config-schema.json
