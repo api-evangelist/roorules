@@ -85,6 +85,8 @@ apis:
       - Developer Workflow
       - LLM
 common:
+  - type: DomainSecurity
+    url: security/roorules-domain-security.yml
   - type: Website
     url: https://roocode.com/
   - type: Documentation
