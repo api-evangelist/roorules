@@ -1,5 +1,6 @@
 aid: roorules
 name: .Roorules
+kind: topic
 description: >-
   .roorules is a configuration file convention for Roo Code, an open-source
   AI-powered autonomous coding assistant built for VS Code. The .roorules file
