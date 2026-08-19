@@ -36,7 +36,7 @@ tags:
   - VS Code
 created: '2025-01-01'
 modified: '2026-05-02'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
   - aid: roorules:roo-code-extension-api
     name: Roo Code VS Code Extension
