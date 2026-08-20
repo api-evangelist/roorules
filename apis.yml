@@ -80,6 +80,10 @@ apis:
       - AI Agents
       - Integration
       - MCP
+    tags_raw:
+      - AI Agents
+      - Integration
+      - MCP
       - Model Context Protocol
   - aid: roorules:roo-code-api-configuration
     name: Roo Code API Configuration Profiles
