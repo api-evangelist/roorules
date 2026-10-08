@@ -116,6 +116,12 @@ apis:
       - Developer Workflow
       - LLM
 common:
+  - type: Plans
+    url: plans/roorules-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/roorules-rate-limits.yml
+  - type: FinOps
+    url: finops/roorules-finops.yml
   - type: IssueTracker
     url: https://github.com/RooCodeInc/Roo-Code/issues
   - type: Releases
